@@ -2,9 +2,8 @@
 
 Technologies used in this project:
 - Apache Maven
-- RESTful
+- RESTful WS
 - Hibernate
 - Spring FMK
 - JUnit
 - Google App Engine
-
