@@ -7,6 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
@@ -26,6 +27,11 @@ public class Person {
     @Id @GeneratedValue
     private int personId;
     private String name;
+    private String surname;
+    private String nickname;
+    private Date dateOfBirth;
+    private String imgUrl;
+    private Role role;
 
     @ElementCollection
     @JoinTable(name="PERSON_ADDRESS",
@@ -62,6 +68,7 @@ public class Person {
    public void setPersonId(int personId){
       this.personId = personId;
    }
+   
 /*   
    public Collection<Vehicle> getVehicles()
    {
@@ -73,6 +80,46 @@ public class Person {
       this.vehicles = vehicles;
    }
 */
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
 	public String showInfo() {
 		String info="No Info";
@@ -87,6 +134,6 @@ public class Person {
 		}
 		return info;
 	}
-   
-   
+
+	
 }
