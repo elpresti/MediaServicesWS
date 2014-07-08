@@ -65,6 +65,7 @@ public class HibernatePerson {
 			 * vehicle3.setName("Porsche-456");
 			 * vehicle3.setSteeringWheel("No se que steeringWheel");
 			 */
+
 			// vehicle2.getPeople().add(person);
 
 			HibernateUtil.getOpenedSession().beginTransaction();
@@ -114,7 +115,8 @@ public class HibernatePerson {
 		}
 		return done;
 	}
-
+	
+/*
 	public List<Person> getAllPersons(int pageNumber, int pageAmount) {
 		List<Person> persons;
 		Session session = HibernateUtil.getOpenedSession();
@@ -185,7 +187,7 @@ public class HibernatePerson {
 		List<Person> person;
 		Session session = HibernateUtil.getOpenedSession();
 		session.beginTransaction();
-
+*/
 		// A BAD practice, APPENDING PARAMETERS (can cause SQL Injection):
 		// Example
 		// String minPersonId_withSQLinjection = "1 OR 1 = 1"; //example where
@@ -204,6 +206,7 @@ public class HibernatePerson {
 		 */
 
 		/* OPTION 2 of Using parameters on HQL querys :: Named parameters */
+/*
 		Query query = session
 				.createQuery("from PERSONS where personId > :personId and personName = :personName");
 		query.setInteger("personId", Integer.parseInt(minPersonId));
@@ -214,5 +217,7 @@ public class HibernatePerson {
 		session.close();
 		return person;
 	}
+
+*/
 
 }

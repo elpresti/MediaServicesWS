@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.mediaservices.clientlocator.IpTrackerLocator;
-import com.mediaservices.model.Person;
+import com.mediaservices.hibernate.HibernatePerson;
+
 
 import java.io.IOException;
 import java.security.Principal;
