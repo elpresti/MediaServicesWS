@@ -1,8 +1,9 @@
 package com.mediaservices.mchartcollector;
 
 import java.util.ArrayList;
-import com.mediaservices.model.music.Song;
+
 import com.mediaservices.model.Medium;
+import com.mediaservices.model.music.Song;
 
 public abstract class ChartCollector {
   private Medium medium;

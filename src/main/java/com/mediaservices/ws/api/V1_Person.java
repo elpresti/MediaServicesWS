@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.mediaservices.hibernate.HibernatePerson;
+import com.mediaservices.hibernate.HibernatePerson; 
+
+
 
 
 import java.io.IOException;
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Date;
 
 @Path("/v1/person/")
@@ -30,22 +34,22 @@ public class V1_Person {
 				@FormParam("name") String name,
 				@FormParam("surname") String surname,
 				@FormParam("nickname") String nickname,
-				@FormParam("dateOfBirth") Date dateOfBirth,
+				@FormParam("dateOfBirth") String dateOfBirth,
 				@FormParam("imgUrl") String imgUrl,
-				@FormParam("roleName") String roleName,
-				@Context HttpServletResponse servletResponse) throws IOException {
+				@FormParam("roleName") String roleName) throws IOException {
 		String output="No Data";
-		try {
-			InitialContext ctx = new InitialContext();
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			output= e.toString();
-		}
-	    
 	    if (!( (name != null && name.length()>1)  && (surname != null && surname.length()>1) )) {
 	  	    output = "ERROR: NOMBRE Y/O APELLIDO INVÁLIDOS";
 	    }else{
-	    	String result = HibernatePerson.getInstance().savePerson(name, surname, nickname, dateOfBirth, imgUrl, roleName);
+	    	Date castedDOB = null;
+			try {
+				castedDOB = DateFormat.getDateInstance().parse(dateOfBirth);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.toString());
+				e.printStackTrace();
+			}
+	    	String result = HibernatePerson.getInstance().savePerson(name, surname, nickname, castedDOB, imgUrl, roleName);
 	    	if (result != "done"){
 		    	output = "NO SE PUDO GUARDAR LA PERSONA<br>Error:<br>"+result;	      
 		    }else{

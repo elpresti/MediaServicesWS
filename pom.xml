@@ -71,13 +71,68 @@
             <scope>test</scope>
         </dependency>
         
-        <!-- RESTful Dependencies -->
-	    <dependency>
+		<!-- Spring 3 dependencies  -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+
+        <dependency>
 	    	<groupId>com.sun.jersey</groupId>
 	      	<artifactId>jersey-servlet</artifactId>
 	      	<version>${jersey.version}</version>
 	    </dependency>
 	    
+	    <!-- Jersey 
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.8</version>
+		</dependency>
+ 		-->
+ 		
+		<!-- Jersey + Spring 
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-spring</artifactId>
+			<version>1.8</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+-->	    
 	    <!-- Persistence Dependencies -->
 	    <dependency>
 	      	<groupId>org.postgresql</groupId>
@@ -103,12 +158,13 @@
 	    </dependency>
 
 		<!-- Other Dependencies -->
+<!-- 
 	    <dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-webmvc</artifactId>
 	        <version>3.0.5.RELEASE</version>
 	    </dependency>
-	    
+ -->
 	    <dependency>
 	      	<groupId>org.codehaus.jettison</groupId>
 	      	<artifactId>jettison</artifactId>

@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,7 +32,9 @@ public class Person {
     private String nickname;
     private Date dateOfBirth;
     private String imgUrl;
-    private Role role;
+    
+    @OneToMany (cascade=CascadeType.ALL)
+    private Collection<Role> roles = new ArrayList();
 
     @ElementCollection
     @JoinTable(name="PERSON_ADDRESS",
@@ -105,12 +108,12 @@ public class Person {
 		this.imgUrl = imgUrl;
 	}
 
-	public Role getRole() {
-		return role;
+	public Collection<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 	
 	public Date getDateOfBirth() {

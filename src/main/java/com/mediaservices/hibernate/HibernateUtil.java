@@ -22,6 +22,7 @@ public class HibernateUtil {
       }
     }catch(Exception e){
       out += "<br>"+e.toString();
+      System.out.println(e.toString());
     }
     return session;
   }

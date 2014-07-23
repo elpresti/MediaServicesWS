@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.mediaservices.hibernate.HibernatePerson;
 
 public class HibernatePerson {
 
@@ -102,7 +101,7 @@ public class HibernatePerson {
 			person.setImgUrl(imgUrl);
 			Role role = new Role();
 			role.setName(roleName);
-			person.setRole(role);
+			person.getRoles().add(role);
 
 			Session session = HibernateUtil.getOpenedSession();
 			session.beginTransaction();
@@ -112,6 +111,7 @@ public class HibernatePerson {
 			done = "done";
 		} catch (Exception e) {
 			done= e.toString();
+			System.out.println(e.toString());
 		}
 		return done;
 	}
