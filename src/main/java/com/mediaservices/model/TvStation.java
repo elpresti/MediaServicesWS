@@ -9,6 +9,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TVSTATIONS")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class TvStation extends Medium {
 
   private ArrayList<String> videoStreams

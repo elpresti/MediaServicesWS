@@ -17,13 +17,16 @@ import javax.persistence.Table;
 @Entity
 // @Inheritance(strategy=InheritanceType.JOINED)
 @Table(name = "RADIOSTATIONS")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class RadioStation extends Medium {
 
 	private ArrayList<String> videoStreams;
 	private ArrayList<String> audioStreams;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "PROGRAM_RADIOSTATION", joinColumns = @JoinColumn(name = "PROGRAM_ID"), inverseJoinColumns = @JoinColumn(name = "RADIOSTATION_ID"))
+	@JoinTable(name = "PROGRAM_RADIOSTATION", 
+		joinColumns = @JoinColumn(name = "PROGRAM_ID"), 
+		inverseJoinColumns = @JoinColumn(name = "RADIOSTATION_ID"))
 	private Collection<Program> programs = new ArrayList<Program>();
 
 	public ArrayList<String> getAudioStreams() {
