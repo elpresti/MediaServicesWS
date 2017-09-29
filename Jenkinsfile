@@ -118,4 +118,4 @@ node {
    stage('FINISHED') {
      echo 'last stage'
    }
-} 
+}  
